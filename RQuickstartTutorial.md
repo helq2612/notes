@@ -14,13 +14,16 @@
 ## The R interactive programming environment  
 
 ### Getting help  
-```help(mean)  
+```
+help(mean)  
 ?mean #get help on the function 'mean' 
 args(mean) #get arguments used with function  
 example(mean) #get example of usage of fn.  
 ??plot #search for help pages for the function (or other) plot  
 RSiteSearch("correlation") #search cran.r-project.com for this term  
-vignette() #find code-snippet examples for function/packages etc.```   
+vignette() #find code-snippet examples for function/packages etc.
+```     
+
 
 ### Objects  
 ```   
@@ -30,7 +33,8 @@ rm(var) #remove/delete variable var from workspace
 q() #quit R  
 .hiddenVar = 3  
 ls(all.names=TRUE)  
-rm(list=ls()```  
+rm(list=ls()
+```  
 
 ### Generic Functions  
 ```  
@@ -40,7 +44,8 @@ class(x)
 str(x) # string summary  
 summary(x) # show 5-number summary
 head(x) # first 5 elements  
-tail(x) # last 5 elements```  
+tail(x) # last 5 elements
+```  
 http://en.wikipedia.org/wiki/Five-number_summary
 
 
@@ -49,19 +54,21 @@ http://en.wikipedia.org/wiki/Five-number_summary
 * Mode: Physical type as which data is stored  
 * Class: Abstract type, term from OOP, usu. implies associated attributes & methods exist
 
-```#Types  
+```
+#Types  
 i = c(1, 2) #integer  
 n = c(1.0, 2.5) #numeric  
 m = c(T, F, T, F, F) #logical  
-c = c('T', 'F') #character```  
-
+c = c('T', 'F') #character
+```  
 
 ```  
 #Mode vs. Class  
 d = as.Date('2010-01-01')  
 mode(d) #numeric  
 length(d) #1  
-class(d) #Date```    
+class(d) #Date
+```    
 
 ##  Data Structures  
 From cran.r-project.org:  
@@ -92,7 +99,8 @@ names(z)
 names(z) = c('one','two','three')  
 z[1]  
 z['one']  
-z$one #ERR```  
+z$one #ERR
+```  
 
 ```
 #Creation shortcuts  
@@ -103,7 +111,8 @@ z = seq(from=1, to=9, by=3)
 z <- rep(pi, times=10)  
 z <- rep(1:3, times=3)  
 z <- numeric(5)  
-z <- logical(5)```  
+z <- logical(5)
+```  
   
 ### Scalars  
 Scalars are simply vectors with length 1, e.g. pi  
@@ -124,7 +133,8 @@ class(f)
 mode(f) # Note 'numeric' mode  
 sort(f) # Sort by levels  
 mean(f) #NA, not meaningful  
-sum(f) #ERROR, not meaningful```  
+sum(f) #ERROR, not meaningful
+```  
 
 ### Lists  
 Properties  
@@ -146,7 +156,8 @@ v = 1:10
 dim(v) = c(2,5)  
 print(v) #Note 'fill-by-columns'  
 nrow(v) #2  
-ncol(v) #5```   
+ncol(v) #5
+```   
 
 ```
 #Create by binding vectors/lists  
@@ -155,19 +166,22 @@ b = 4:6
 c = cbind(a,b) # Bind-as-columns  
 d = rbind(a,b) #Bind-as-rows  
 dim(c) #3 rows x 2 columns  
-dim(d) #2 rows x 3 columns```  
+dim(d) #2 rows x 3 columns
+```  
 
 ```
 #Create using matrix() function  
 z = matrix( c(......), nrow=3 )  
-z = matrix( c(......), ncol=2, byrow=T )```
+z = matrix( c(......), ncol=2, byrow=T )
+```
 
 ```
 #Matrix operations  
 t(c)     # transpose  
 solve(z)    # inverse  
 c * c    # componentwise multiplication  
-c %*% d  # matrix multiplication```    
+c %*% d  # matrix multiplication
+```    
 
 ### Data Frame  
 Notes:  
@@ -185,7 +199,8 @@ df[1,] #Row 1
 df[,1] #Column 1  
 names(df) = c('id', 'value')  
 df$id #Index by col-name  
-df2 <- edit(df) #data.frame editor interface```  
+df2 <- edit(df) #data.frame editor interface
+```  
 
 ```
 # Import data frame from file/URL  
@@ -193,7 +208,8 @@ goodf = read.table("http://satsingh.myserver.com/good.tsv", sep="\t", header=TRU
 badf = read.table("http://satsingh.myserver.com/bad.tsv", sep="\t", header=TRUE, fill=TRUE)  
 
 # Export data frame to file  
-write.table(badf, file="fixed.csv", sep=",",row.names=FALSE)```
+write.table(badf, file="fixed.csv", sep=",",row.names=FALSE)
+```
 
 ```
 # More data.frame operations  
@@ -207,7 +223,8 @@ df = df[order(-df$nimp)] #Sort by column, descending order
 #Select rows, based on expression  
 df[df$nimp > 0,] 
 #Create new derived column  
-raw = raw[,-match("X", names(raw))] #Remove column X```  
+raw = raw[,-match("X", names(raw))] #Remove column X
+```  
 
 ### Packages  
 ```  
@@ -218,13 +235,15 @@ remove.packages("nortest")
 update.packages()  
 library(nortest) #load the nortest package  
 help(package=nortest) #get help on the package  
-vignette(package='nortest') #code-snippets and usage info.```  
+vignette(package='nortest') #code-snippets and usage info.
+```  
 
 #### Local package installation (if you do not have sudo access) 
 ```  
 mkdir -p ~/R/libs #make a local directory for simplifying package installs 
 echo 'R_LIBS_USER="~/R/libs"' >  $HOME/.Renviron  
-install.packages("nortest",lib="~/R/libs", repos="http://cran.r-project.org")```  
+install.packages("nortest",lib="~/R/libs", repos="http://cran.r-project.org")
+```  
 More info:
 
 * http://cran.r-project.org/doc/manuals/R-admin.html#Installing-packages 
@@ -242,7 +261,8 @@ echo 'R_LIBS_USER="~/R/libs"' >  $HOME/.Renviron
 
 #On destination-machine, in R:  
 install.packages("Hmisc_3.9-3.tar.gz",lib="~/R/libs", repos=NULL) #install  
-library("Hmisc",lib.loc="~/R/libs") #load library for this session```  
+library("Hmisc",lib.loc="~/R/libs") #load library for this session
+```  
 
 ## Graphics  
 Basic Graphics  
@@ -261,14 +281,16 @@ plot( r )
 plot( n )  
 plot( sort(r) )  
 plot( sort(n) )  
-grid() #add a grid to the graph```  
+grid() #add a grid to the graph
+```  
 
 ### Histograms  
 ```
 hist( r )  
 hist( n )  
 hist(n, breaks=length(n)/10) #Specify no. of histogram bins  
-hist(n, main="Histogram for Normal Distribution ", xlab="(Normal) Random Variable" )```  
+hist(n, main="Histogram for Normal Distribution ", xlab="(Normal) Random Variable" )
+```  
 
 ### Line chart  
 ```
@@ -277,18 +299,21 @@ df = df[order(-df$nimp),] #Sort by column, descending order
 plot(df$nbook)  
 plot(df$saleamt)  
 plot( df$nimp, df$nbook )  
-plot( df$nimp, df$nbook, type='l') #Line chart```  
+plot( df$nimp, df$nbook, type='l') #Line chart
+```  
 
 ### Regression Line  
 ```
 plot( df$nimp, df$nbook )  
-abline(lsfit(df$nimp,df$nbook)) #Add a least-squares regression line to the plot```  
+abline(lsfit(df$nimp,df$nbook)) #Add a least-squares regression line to the plot
+```  
 
 ### Bar chart  
 ```
 df = df[order(-df$nbook),|order(-df$nbook),] \#Sort by column, descending order  
 topbook = df[1:10,]  
-barplot(height=topbook$nbook, names.arg=topbook$oneg) #Bar plot```  
+barplot(height=topbook$nbook, names.arg=topbook$oneg) #Bar plot
+```  
 
 ### Pie chart  
 ```
@@ -299,7 +324,8 @@ pie(topbook$nbook, labels=topbook$oneg) #Pie chart
 ```
 par(mfrow=c(2,1)) #2 graphs on one plot  
 plot( sort(runif(1000)) )  
-plot( sort(nunif(1000)) )```  
+plot( sort(nunif(1000)) )
+```  
 
 ```
 #Output plot to file  
@@ -315,7 +341,8 @@ R CMD BATCH --vanilla '--args ~/input.txt' ~/myScript.R myScript.Rout
 R CMD BATCH --help  
 
 # Within R 
-args <- commandArgs(trailingOnly = TRUE) #To get CLI arguments within scripts```  
+args <- commandArgs(trailingOnly = TRUE) #To get CLI arguments within scripts
+```  
 
 More info:
 
