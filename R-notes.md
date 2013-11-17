@@ -30,12 +30,12 @@
 - headless use
 
 ### Standard optimizations (and anti-patterns)
--- for loops
+- for loops
 
 ### Standard idioms/patterns 
--- cache
--- combine-apply-split ?
--- calculations between rows in df / window functions
+- cache
+- combine-apply-split ?
+- calculations between rows in df / window functions
 
 ### Top-10 Qs for Adv-R
 - R debugging
